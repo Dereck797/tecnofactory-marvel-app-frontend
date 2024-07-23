@@ -1,0 +1,11 @@
+<div class="comic-detail-container" *ngIf="!loading">
+    <h2>{{ comic.title }}</h2>
+    <img [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension" alt="{{ comic.title }}">
+    <p>{{ comic.description }}</p>
+    <p><strong>Page Count:</strong> {{ comic.pageCount }}</p>
+    <p><strong>Series:</strong> {{ comic.series.name }}</p>
+    <p><strong>Price:</strong> {{ comic.prices[0].price | currency }}</p>
+    <a [href]="comic.urls[0].url" target="_blank">More Details</a>
+  </div>
+  <div class="loading" *ngIf="loading">Loading...</div>
+  

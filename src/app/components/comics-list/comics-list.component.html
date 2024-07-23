@@ -1,0 +1,9 @@
+<div class="comics-list">
+    <div *ngFor="let comic of comics" class="comic-item">
+      <a [routerLink]="['/comics', comic.id]">
+        <img [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension" alt="{{ comic.title }}">
+        <h3>{{ comic.title }}</h3>
+      </a>
+    </div>
+  </div>
+  
