@@ -1,0 +1,20 @@
+<nav class="navbar">
+    <div class="navbar-container">
+      <a routerLink="/comics" class="navbar-brand">Marvel Comics</a>
+      <ul class="navbar-menu">
+        <li *ngIf="isLoggedIn()">
+          <a routerLink="/favorites">Favorites</a>
+        </li>
+        <li *ngIf="isLoggedIn()">
+          <a (click)="logout()">Logout</a>
+        </li>
+        <li *ngIf="!isLoggedIn()">
+          <a routerLink="/login">Login</a>
+        </li>
+        <li *ngIf="!isLoggedIn()">
+          <a routerLink="/register">Register</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  

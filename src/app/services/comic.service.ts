@@ -10,11 +10,11 @@ export class ComicService {
 
   constructor(private http: HttpClient) { }
 
-  getComics(): Observable<any> {
+  getComics(limit: number, offset: number): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('token')}`
     });
-    return this.http.get(this.apiUrl, { headers });
+    return this.http.get(`${this.apiUrl}?limit=${limit}&offset=${offset}`, { headers });
   }
 
   getComicById(id: string): Observable<any> {

@@ -11,6 +11,7 @@ import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './guards/auth.guard';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AuthGuard } from './guards/auth.guard';
     RegisterComponent,
     ComicsListComponent,
     ComicDetailComponent,
-    FavoritesListComponent
+    FavoritesListComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

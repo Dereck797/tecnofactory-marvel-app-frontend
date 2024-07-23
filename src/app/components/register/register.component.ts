@@ -8,20 +8,23 @@ import { AuthService } from './../../services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  name: string = '';
-  email: string = '';
-  password: string = '';
+  name = '';
+  email = '';
+  password = '';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   register() {
-    this.authService.register({ name: this.name, email: this.email, password: this.password }).subscribe(
-      response => {
+    const user = { name: this.name, email: this.email, password: this.password };
+    this.authService.register(user).subscribe({
+      next: response => {
+        alert('Registration successful! Please log in.');
         this.router.navigate(['/login']);
       },
-      error => {
-        console.error('Registration failed', error);
+      error: error => {
+        console.error(error);
+        alert('Registration failed');
       }
-    );
+    });
   }
 }
