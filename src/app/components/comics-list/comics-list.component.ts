@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class ComicsListComponent implements OnInit {
   comics: any[] = [];
   favorites: any[] = [];
-  limit: number = 3;
+  limit: number = 2;
   maxComics: number = 10;
   offset: number = 0;
   loading: boolean = false;
