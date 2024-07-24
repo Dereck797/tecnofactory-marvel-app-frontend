@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 export class ComicsListComponent implements OnInit {
   comics: any[] = [];
   favorites: any[] = [];
-  limit: number = 3;
-  maxComics: number = 10;
+  limit: number = 4;
+  maxComics: number = 12;
   offset: number = 0;
   loading: boolean = false;
   skeletonCountArray: number[] = Array.from({ length: 10 });
