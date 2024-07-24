@@ -25,8 +25,7 @@ Para abrir la página utilizar este link: https://dereck797.github.io/tecnofacto
 
 Para visualizar la bd, ingresar a https://account.mongodb.com/account/login con las siguientes 
 
-**credenciales: emailAddress: munozderecksebastian@gmail.com**
-**credenciales: Password: tecnofactory-marvel**
+**credenciales: emailAddress: munozderecksebastian@gmail.com, Password: tecnofactory-marvel**
 
 Dar click en Browse Collections:
 
