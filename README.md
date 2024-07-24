@@ -1,5 +1,5 @@
 
-# Marvel App Frontend
+# tecnofactory-marvel-app-frontend
 
 Este proyecto es una aplicación frontend para gestionar usuarios y cómics de Marvel. La aplicación está construida utilizando Angular y sigue las mejores prácticas de desarrollo.
 
@@ -30,14 +30,14 @@ Para visualizar la bd, ingresar a https://account.mongodb.com/account/login con 
 
 Dar click en Browse Collections:
 
-![Logo de Marvel](./src/assets/attlas-db.PNGg)
+![Logo de Marvel](./src/assets/attlas-db.PNG)
 
 ## Instalación (Solo necesario en caso de agregar nuevas funcionalidades)
 
 1. Clona el repositorio:
    ```bash
    git clone <URL_DEL_REPOSITORIO>
-   cd marvel-app-frontend
+   cd tecnofactory-marvel-app-frontend
    ```
 
 2. Instala las dependencias:
