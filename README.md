@@ -1,27 +1,64 @@
-# TecnofactoryMarvelAppFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
+# Marvel App Frontend
 
-## Development server
+Este proyecto es una aplicación frontend para gestionar usuarios y cómics de Marvel. La aplicación está construida utilizando Angular y sigue las mejores prácticas de desarrollo.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Características
 
-## Code scaffolding
+- Registro de usuarios
+- Autenticación de usuarios
+- Listado de cómics de Marvel
+- Visualización de detalles de cómics
+- Gestión de cómics favoritos de los usuarios
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Requisitos
 
-## Build
+- Node.js
+- npm (Node Package Manager)
+- Angular CLI
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Uso
 
-## Running unit tests
+Para abrir la página utilizar este link: https://dereck797.github.io/tecnofactory-marvel-app-frontend/login.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Base de Datos
 
-## Running end-to-end tests
+Para visualizar la bd, ingresar a https://account.mongodb.com/account/login con las siguientes 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**credenciales: emailAddress: munozderecksebastian@gmail.com**
+**credenciales: Password: tecnofactory-marvel**
 
-## Further help
+Dar click en Browse Collections:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Logo de Marvel](./src/assets/attlas-db.PNGg)
+
+## Instalación (Solo necesario en caso de agregar nuevas funcionalidades)
+
+1. Clona el repositorio:
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   cd marvel-app-frontend
+   ```
+
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+
+3. Configura las variables de entorno:
+   Crea un archivo `environment.ts` en la carpeta `src/environments` con el siguiente contenido:
+   ```typescript
+   export const environment = {
+     production: false,
+     apiUrl: 'https://tecnofactory-marvel-app-backend-production.up.railway.app/api'
+   };
+   ```
+
+4. Inicia la aplicación:
+   ```bash
+   npm start
+   ```
+
+
+
+
