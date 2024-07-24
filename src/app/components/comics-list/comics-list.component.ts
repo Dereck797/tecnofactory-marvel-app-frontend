@@ -25,7 +25,6 @@ export class ComicsListComponent implements OnInit {
   loadFavorites() {
     this.comicService.getFavoriteComics().subscribe(favorites => {
       this.favorites = favorites;
-      console.log('favorites', this.favorites);
       this.loadComics();
     });
   }
@@ -41,7 +40,6 @@ export class ComicsListComponent implements OnInit {
           comic.thumbnail : { path: 'assets/default-thumbnail', extension: 'png' },
         isFavorite: this.isFavorite(comic.id) // Marcar si es favorito
       }));
-      console.log(formattedComics);
       this.comics = [...this.comics, ...formattedComics];
       this.offset += this.limit;
       this.loading = false;
@@ -64,7 +62,7 @@ export class ComicsListComponent implements OnInit {
   }
 
   toggleFavorite(comic: any, event: Event) {
-    event.stopPropagation(); // Evitar que el clic en el corazón navegue al detalle del cómic
+    event.stopPropagation();
   
     comic.isFavorite = !comic.isFavorite;
   

@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    max-width: 1000px; /* Ancho máximo para el contenedor */
+    max-width: 1000px;
   }
   
   .comic-card {
@@ -59,22 +59,21 @@
     width: 60%;
   }
   
-  /* Responsive design */
   @media (max-width: 1024px) {
     .comic-card, .skeleton {
-      width: calc(50% - 20px); /* 2 cómics por fila en pantallas medianas */
+      width: calc(50% - 20px); 
     }
   }
   
   @media (max-width: 768px) {
     .comic-card, .skeleton {
-      width: calc(100% - 20px); /* 1 cómic por fila en pantallas pequeñas */
+      width: calc(100% - 20px);
     }
   }
   
   @media (max-width: 480px) {
     .comic-card, .skeleton {
-      width: calc(100% - 10px); /* 1 cómic por fila en pantallas muy pequeñas */
+      width: calc(100% - 10px); 
     }
   }
   
