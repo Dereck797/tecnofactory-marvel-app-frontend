@@ -51,7 +51,7 @@
 }
 
 .skeleton {
-  width: calc(33.333% - 100px);
+  width: calc(33.333% - 120px);
   background-color: #d4a7a7;
   border-radius: 8px;
   display: flex;
