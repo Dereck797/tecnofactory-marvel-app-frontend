@@ -1,7 +1,7 @@
 <div class="comics-container">
-  <div *ngFor="let comic of comics" class="comic-card">
-    <div *ngIf="comic.thumbnail && comic.title">
-      <img [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension" alt="{{comic.title}}">
+  <div *ngFor="let comic of comics" class="comic-card" (click)="goToComicDetail(comic.id)">
+    <div *ngIf="comic.title">
+      <img [src]="(comic.thumbnail?.path + '.' + comic.thumbnail?.extension) || 'assets/default-thumbnail.jpg'" alt="{{comic.title}}">
       <h3>{{comic.title}}</h3>
     </div>
   </div>

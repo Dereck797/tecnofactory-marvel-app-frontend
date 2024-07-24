@@ -1,11 +1,27 @@
-<div class="comic-detail-container" *ngIf="!loading">
-    <h2>{{ comic.title }}</h2>
-    <img [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension" alt="{{ comic.title }}">
-    <p>{{ comic.description }}</p>
-    <p><strong>Page Count:</strong> {{ comic.pageCount }}</p>
-    <p><strong>Series:</strong> {{ comic.series.name }}</p>
-    <p><strong>Price:</strong> {{ comic.prices[0].price | currency }}</p>
-    <a [href]="comic.urls[0].url" target="_blank">More Details</a>
+<div *ngIf="comic">
+  <div class="comic-detail-container">
+    <img [src]="(comic.thumbnail?.path + '.' + comic.thumbnail?.extension) || 'assets/default-thumbnail.png'" alt="{{comic.title}}">
+    <div class="comic-detail-info">
+      <h2>{{ comic.title }}</h2>
+      <p>{{ comic.description || 'No description available.' }}</p>
+      <ul>
+        <li><strong>Issue Number:</strong> {{ comic.issueNumber }}</li>
+        <li><strong>Page Count:</strong> {{ comic.pageCount }}</li>
+        <li><strong>Series:</strong> {{ comic.series?.name }}</li>
+        <li><strong>Modified:</strong> {{ comic.modified | date }}</li>
+        <li *ngFor="let creator of comic.creators?.items">
+          <strong>{{ creator.role | titlecase }}:</strong> {{ creator.name }}
+        </li>
+      </ul>
+      <div class="comic-detail-links">
+        <a *ngFor="let url of comic.urls" [href]="url.url" target="_blank">{{ url.type | titlecase }}</a>
+      </div>
+    </div>
   </div>
-  <div class="loading" *ngIf="loading">Loading...</div>
-  
+</div>
+<div *ngIf="loading" class="loading">
+  <p>Loading...</p>
+</div>
+<div *ngIf="error" class="error">
+  <p>{{ error }}</p>
+</div>

@@ -1,6 +1,8 @@
 <nav class="navbar">
     <div class="navbar-container">
-      <a routerLink="/comics" class="navbar-brand">Marvel Comics</a>
+      <a routerLink="/comics" class="navbar-brand">
+        <img src="assets/marvel-logo.png" alt="Marvel Comics" class="navbar-logo">
+      </a>
       <ul class="navbar-menu">
         <li *ngIf="isLoggedIn()">
           <a routerLink="/favorites">Favorites</a>

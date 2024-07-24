@@ -1,4 +1,4 @@
-nav {
+  nav {
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -15,4 +15,20 @@ nav {
   nav a.active {
     text-decoration: underline;
   }
+
+  .main-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+
+  .app-background {
+    background-image: url('src/assets/backgraound-comic.jpg');
+    min-height: 100vh;
+  }
+  
   

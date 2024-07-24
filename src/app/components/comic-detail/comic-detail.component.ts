@@ -9,26 +9,30 @@ import { ComicService } from './../../services/comic.service';
 })
 export class ComicDetailComponent implements OnInit {
   comic: any;
-  loading: boolean = true;
+  loading: boolean = false;
+  error: string = '';
 
-  constructor(private route: ActivatedRoute, private comicService: ComicService) {}
+  constructor(private route: ActivatedRoute, private comicService: ComicService) { }
 
   ngOnInit(): void {
-    const comicId = this.route.snapshot.paramMap.get('id');
-    this.fetchComicDetails(comicId);
+    this.getComicDetail();
   }
 
-  fetchComicDetails(id: string | null): void {
+  getComicDetail() {
+    const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.comicService.getComicById(id).subscribe({
-        next: (data) => {
-          this.comic = data;
-          this.loading = false;
-        },
-        error: (error) => {
-          console.error('Error fetching comic details:', error);
-          this.loading = false;
-        }
+      this.loading = true;
+      this.comicService.getComicById(id).subscribe(response => {
+        this.comic = {
+          ...response,
+          thumbnail: response.thumbnail && response.thumbnail.path !== 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available' ? 
+            response.thumbnail : { path: 'assets/default-thumbnail', extension: 'png' }
+        };
+        this.loading = false;
+      }, error => {
+        console.error(error);
+        this.error = 'Failed to load comic details.';
+        this.loading = false;
       });
     }
   }
