@@ -1,2 +1,22 @@
-
+<div class="favorites-container">
+    <div *ngFor="let favorite of favoriteComics" class="comic-card" (click)="goToComicDetail(favorite.comicId)">
+      <div *ngIf="!favorite.loadingDetails && favorite.details">
+        <img [src]="favorite.details.thumbnail.path + '.' + favorite.details.thumbnail.extension" alt="{{favorite.details.title}}">
+        <h3>{{favorite.details.title}}</h3>
+      </div>
+      <div *ngIf="favorite.loadingDetails" class="skeleton">
+        <div class="skeleton-image"></div>
+        <div class="skeleton-text"></div>
+        <div class="skeleton-text short"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="loading" class="skeleton-container">
+    <div class="skeleton" *ngFor="let i of skeletonCountArray">
+      <div class="skeleton-image"></div>
+      <div class="skeleton-text"></div>
+      <div class="skeleton-text short"></div>
+    </div>
+  </div>
   

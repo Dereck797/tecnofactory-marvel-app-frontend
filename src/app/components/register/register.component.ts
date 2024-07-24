@@ -11,11 +11,12 @@ export class RegisterComponent {
   name = '';
   email = '';
   password = '';
+  id = ''; 
 
   constructor(private authService: AuthService, private router: Router) {}
 
   register() {
-    const user = { name: this.name, email: this.email, password: this.password };
+    const user = { name: this.name, email: this.email, password: this.password, id: this.id }; // Incluir identificación
     this.authService.register(user).subscribe({
       next: response => {
         alert('Registration successful! Please log in.');

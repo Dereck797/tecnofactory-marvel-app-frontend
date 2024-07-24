@@ -8,20 +8,39 @@
 }
 
 .comic-card {
-  background-color: #f0f0f0;
+  background-color: #d4a7a7;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 10px;
-  padding: 15px;
   text-align: center;
   width: calc(33.333% - 100px); 
   box-sizing: border-box;
+  position: relative; /* Necesario para posicionar el icono de favorito */
 }
 
 .comic-card img {
   width: 100%;
   height: 300px;
   object-fit: cover; 
+}
+
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 32px; /* Tamaño del icono */
+  cursor: pointer;
+  z-index: 10;
+}
+
+.heart-icon {
+  font-size: 32px; /* Tamaño del icono del corazón */
+  color: white; /* Color por defecto */
+  transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.heart-icon.favorited {
+  color: red; /* Color cuando es favorito */
 }
 
 .skeleton-container {
@@ -32,19 +51,17 @@
 }
 
 .skeleton {
-  width:  calc(33.333% - 100px);
-  height: 300px;
-  background-color: #e0e0e0;
+  width: calc(33.333% - 100px);
+  background-color: #d4a7a7;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px;
 }
 
 .skeleton-image {
   width: 100%;
-  height: 200px;
+  height: 300px;
   background-color: #ccc;
   border-radius: 8px;
   margin-bottom: 10px;
@@ -60,4 +77,23 @@
 
 .skeleton-text.short {
   width: 60%;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .comic-card, .skeleton {
+    width: calc(50% - 20px); /* 2 cómics por fila en pantallas medianas */
+  }
+}
+
+@media (max-width: 768px) {
+  .comic-card, .skeleton {
+    width: calc(100% - 20px); /* 1 cómic por fila en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .comic-card, .skeleton {
+    width: calc(100% - 10px); /* 1 cómic por fila en pantallas muy pequeñas */
+  }
 }

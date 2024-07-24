@@ -1,6 +1,9 @@
 <div class="comics-container">
-  <div *ngFor="let comic of comics" class="comic-card" (click)="goToComicDetail(comic.id)">
-    <div *ngIf="comic.title">
+  <div *ngFor="let comic of comics" class="comic-card">
+    <div class="favorite-icon" (click)="toggleFavorite(comic, $event)">
+      <i [class.favorited]="comic.isFavorite" class="heart-icon">&#9829;</i>
+    </div>
+    <div *ngIf="comic.title" (click)="goToComicDetail(comic.id)">
       <img [src]="(comic.thumbnail?.path + '.' + comic.thumbnail?.extension) || 'assets/default-thumbnail.jpg'" alt="{{comic.title}}">
       <h3>{{comic.title}}</h3>
     </div>

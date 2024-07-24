@@ -1,4 +1,11 @@
-<div *ngIf="comic">
+<div *ngIf="loading" class="skeleton-detail-container">
+  <div class="skeleton-detail-image"></div>
+  <div class="skeleton-detail-text"></div>
+  <div class="skeleton-detail-text"></div>
+  <div class="skeleton-detail-text short"></div>
+</div>
+
+<div *ngIf="!loading && comic">
   <div class="comic-detail-container">
     <img [src]="(comic.thumbnail?.path + '.' + comic.thumbnail?.extension) || 'assets/default-thumbnail.png'" alt="{{comic.title}}">
     <div class="comic-detail-info">
@@ -18,9 +25,6 @@
       </div>
     </div>
   </div>
-</div>
-<div *ngIf="loading" class="loading">
-  <p>Loading...</p>
 </div>
 <div *ngIf="error" class="error">
   <p>{{ error }}</p>

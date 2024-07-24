@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ComicsListComponent implements OnInit {
   comics: any[] = [];
+  favorites: any[] = [];
   limit: number = 3;
   maxComics: number = 10;
   offset: number = 0;
@@ -18,7 +19,15 @@ export class ComicsListComponent implements OnInit {
   constructor(private comicService: ComicService, private router: Router) { }
 
   ngOnInit(): void {
-    this.loadComics();
+    this.loadFavorites();
+  }
+
+  loadFavorites() {
+    this.comicService.getFavoriteComics().subscribe(favorites => {
+      this.favorites = favorites;
+      console.log('favorites', this.favorites);
+      this.loadComics();
+    });
   }
 
   loadComics() {
@@ -29,8 +38,10 @@ export class ComicsListComponent implements OnInit {
       const formattedComics = response.map((comic: any) => ({
         ...comic,
         thumbnail: comic.thumbnail && comic.thumbnail.path !== 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available' ? 
-          comic.thumbnail : { path: 'assets/default-thumbnail', extension: 'png' }
+          comic.thumbnail : { path: 'assets/default-thumbnail', extension: 'png' },
+        isFavorite: this.isFavorite(comic.id) // Marcar si es favorito
       }));
+      console.log(formattedComics);
       this.comics = [...this.comics, ...formattedComics];
       this.offset += this.limit;
       this.loading = false;
@@ -44,8 +55,43 @@ export class ComicsListComponent implements OnInit {
     });
   }
 
+  isFavorite(comicId: number): boolean {
+    return this.favorites.some(fav => fav.comicId == comicId);
+  }
+
   goToComicDetail(comicId: string) {
     this.router.navigate(['/comics', comicId]);
+  }
+
+  toggleFavorite(comic: any, event: Event) {
+    event.stopPropagation(); // Evitar que el clic en el corazón navegue al detalle del cómic
+  
+    comic.isFavorite = !comic.isFavorite;
+  
+    if (comic.isFavorite) {
+      this.comicService.addFavoriteComic({
+        comicId: comic.id,
+        title: comic.title,
+        description: comic.description,
+        thumbnail: `${comic.thumbnail.path}.${comic.thumbnail.extension}`
+      }).subscribe({
+        next: () => {
+          console.log('Comic added to favorites');
+        },
+        error: (error) => {
+          console.error('Failed to add comic to favorites', error);
+        }
+      });
+    } else {
+      this.comicService.removeFavoriteComic(comic.id).subscribe({
+        next: () => {
+          console.log('Comic removed from favorites');
+        },
+        error: (error) => {
+          console.error('Failed to remove comic from favorites', error);
+        }
+      });
+    }
   }
 
   @HostListener('window:scroll', ['$event'])

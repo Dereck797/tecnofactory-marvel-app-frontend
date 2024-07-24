@@ -1,5 +1,4 @@
-
-  <div class="register-container">
+<div class="register-container">
     <h2>Register</h2>
     <form (ngSubmit)="register()">
       <div class="form-group">
@@ -13,6 +12,10 @@
       <div class="form-group">
         <label for="password">Password</label>
         <input type="password" id="password" [(ngModel)]="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="identification">Identification</label>
+        <input type="text" id="identification" [(ngModel)]="id" name="identification" required>
       </div>
       <button type="submit" class="btn">Register</button>
     </form>
