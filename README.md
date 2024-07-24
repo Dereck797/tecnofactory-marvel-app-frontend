@@ -43,17 +43,9 @@ Dar click en Browse Collections:
    ```bash
    npm install
    ```
-
-3. Configura las variables de entorno:
-   Crea un archivo `environment.ts` en la carpeta `src/environments` con el siguiente contenido:
-   ```typescript
-   export const environment = {
-     production: false,
-     apiUrl: 'https://tecnofactory-marvel-app-backend-production.up.railway.app/api'
-   };
    ```
 
-4. Inicia la aplicación:
+3. Inicia la aplicación:
    ```bash
    npm start
    ```
