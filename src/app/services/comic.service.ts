@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { environment } from 'src/enviroments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ComicService {
-  private apiUrl = 'https://tecnofactory-marvel-app-backend-production.up.railway.app/api/comics';
+  private apiUrl = environment.apiUrl+'/comics';
 
   constructor(private http: HttpClient) { }
 
